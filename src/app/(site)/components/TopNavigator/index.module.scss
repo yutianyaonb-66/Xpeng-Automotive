@@ -1,0 +1,56 @@
+.bgLight {
+  @apply bg-white text-black;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  .navItem:hover {
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+.bgTransparent {
+  @apply bg-transparent text-white;
+  .navItem:hover {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+.navItem {
+  @apply px-[28px] cursor-pointer relative h-[56px] flex items-center;
+  &:hover::after {
+    content: '';
+    @apply bg-[#a4ce4c] h-[1px] absolute bottom-[10px] left-[28px] right-[28px];
+  }
+}
+
+.carModelNav {
+  @apply relative;
+
+  @keyframes carAnimationEnter {
+    0% {
+      @apply right-[-104px] opacity-0;
+    }
+    100% {
+      @apply right-[-104px] opacity-100;
+    }
+  }
+
+  @keyframes carAnimationLeave {
+    0% {
+      @apply right-[-104px] opacity-100;
+    }
+    100% {
+      @apply right-[100%] opacity-0;
+    }
+  }
+
+  .carAnimation {
+    @apply w-[104px] h-[48px] absolute top-0 bottom-0 z-[100] left-[-104px] overflow-hidden;
+    .carImage {
+      @apply w-[104px] max-w-[104px] h-[48px];
+      @apply absolute top-[60%] translate-y-[-50%];
+      // 未悬浮时，汽车从右侧向左驶入半个身位
+      animation: carAnimationEnter 0.3s 1 forwards;
+      &.hovering {
+        // 悬浮时，汽车驶离界面
+        animation: carAnimationLeave 1.5s 1 forwards;
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  id        Int      @id @default(autoincrement())
+  phone     String   @map("phone")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+model navCarModels {
+  id        Int      @id @default(autoincrement())
+  modelName String   @map("model_name")
+  modelImg  String   @map("model_img")
+  order     Int      @default(0) @map("order")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  status    Int      @default(0) @map("status")
+
+  @@map("nav_car_models")
+}
+
+model homeSliders {
+  id        Int      @id @default(autoincrement())
+  img       String   @map("img")
+  title     String   @map("title")
+  subtitle  String   @map("subtitle")
+  buttons   Json     @map("buttons")
+  order     Int      @default(0) @map("order")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  status    Int      @default(0) @map("status")
+
+  @@map("home_sliders")
+}

@@ -1,0 +1,11 @@
+.imgWrapper {
+  @apply relative cursor-pointer;
+  .actionBtn {
+    @apply absolute top-[5px] z-10 hidden text-[20px];
+  }
+  &:hover {
+    .actionBtn {
+      display: block;
+    }
+  }
+}

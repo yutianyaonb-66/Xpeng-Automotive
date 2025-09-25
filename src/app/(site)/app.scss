@@ -1,0 +1,40 @@
+/* 设计稿宽度 */
+$designWidth: 1440;
+$baseFontSize: 16;
+:root {
+  /* 根据设计稿宽度计算根元素字号，最大字号是默认值16px */
+  font-size: min(
+    calc((100vw / $designWidth) * $baseFontSize),
+    $baseFontSize * 1px
+  );
+}
+
+body {
+  /* 添加body字体大小，作为默认字号 */
+  font-size: 14px;
+  color: #000;
+}
+
+/* 为按钮添加从左向右填充绿色的悬浮效果，添加该样式的按钮，需要1px边框 */
+.btn-hover {
+  @apply relative overflow-hidden;
+  & * {
+    @apply z-[1];
+  }
+  &::before {
+    content: '';
+    @apply absolute top-0 left-0 w-0 h-full  z-[0] bg-[#a4ce4c];
+    @apply transition-all duration-300;
+    /* 未hover时，设置宽度0，没有边框 */
+    @apply w-0;
+    @apply border-none;
+  }
+  &:hover {
+    /* hover时，设置宽度为100%，隐藏原边框，添加覆盖层边框，设置背景透明，颜色为白色，::after才能正常展示 */
+    @apply border-transparent bg-transparent text-white;
+    &::before {
+      @apply w-full;
+      @apply border border-[#a4ce4c];
+    }
+  }
+}
