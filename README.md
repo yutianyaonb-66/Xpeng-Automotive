@@ -5,6 +5,7 @@ This is a practice project inspired by the official **Xpeng Automotive** website
 It is built with **Next.js** and demonstrates modern frontend development, server-side rendering, and database integration using Prisma and MySQL.
 
 ---
+![Alt text](public/images/webContent.png)
 
 ## Project Stack
 
