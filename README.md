@@ -37,8 +37,8 @@ It is built with **Next.js** and demonstrates modern frontend development, serve
 
 ### 1. Clone the repository
 ```bash
-git clone <your-repo-url>
-cd <your-project-folder>
+git clone https://github.com/yutianyaonb-66/Xpeng-Automotive.git
+cd Xpeng-Automotive
 ```
 
 ### 2. Install dependencies
